@@ -1,425 +1,507 @@
-{\rtf1\ansi\ansicpg949\cocoartf2868
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeelGood - 감정 기반 콘텐츠 추천 플랫폼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="ko">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>FeelGood - \uc0\u44048 \u51221  \u44592 \u48152  \u53080 \u53584 \u52768  \u52628 \u52380  \u54540 \u47019 \u54268 </title>\
-    <style>\
-        * \{\
-            margin: 0;\
-            padding: 0;\
-            box-sizing: border-box;\
-        \}\
-\
-        body \{\
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\
-            line-height: 1.6;\
-            color: #333;\
-            overflow-x: hidden;\
-        \}\
-\
-        /* \uc0\u54756 \u45908  */\
-        header \{\
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\
-            color: white;\
-            padding: 1rem 0;\
-            position: sticky;\
-            top: 0;\
-            z-index: 100;\
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);\
-        \}\
-\
-        .header-content \{\
-            max-width: 1200px;\
-            margin: 0 auto;\
-            padding: 0 2rem;\
-            display: flex;\
-            justify-content: space-between;\
-            align-items: center;\
-        \}\
-\
-        .logo \{\
-            font-size: 1.8rem;\
-            font-weight: bold;\
-            letter-spacing: 1px;\
-        \}\
-\
-        nav ul \{\
-            display: flex;\
-            list-style: none;\
-            gap: 2rem;\
-        \}\
-\
-        nav a \{\
-            color: white;\
-            text-decoration: none;\
-            transition: opacity 0.3s;\
-        \}\
-\
-        nav a:hover \{\
-            opacity: 0.8;\
-        \}\
-\
-        /* \uc0\u55176 \u50612 \u47196  \u49465 \u49496  */\
-        .hero \{\
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\
-            color: white;\
-            padding: 6rem 2rem;\
-            text-align: center;\
-            min-height: 60vh;\
-            display: flex;\
-            flex-direction: column;\
-            justify-content: center;\
-            align-items: center;\
-        \}\
-\
-        .hero h1 \{\
-            font-size: 3.5rem;\
-            margin-bottom: 1rem;\
-            animation: slideDown 0.8s ease-out;\
-        \}\
-\
-        .hero p \{\
-            font-size: 1.3rem;\
-            margin-bottom: 2rem;\
-            opacity: 0.95;\
-            animation: slideUp 0.8s ease-out;\
-        \}\
-\
-        .cta-button \{\
-            background: white;\
-            color: #667eea;\
-            padding: 1rem 3rem;\
-            border: none;\
-            border-radius: 50px;\
-            font-size: 1.1rem;\
-            font-weight: bold;\
-            cursor: pointer;\
-            transition: all 0.3s;\
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);\
-        \}\
-\
-        .cta-button:hover \{\
-            transform: translateY(-3px);\
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);\
-        \}\
-\
-        @keyframes slideDown \{\
-            from \{ opacity: 0; transform: translateY(-30px); \}\
-            to \{ opacity: 1; transform: translateY(0); \}\
-        \}\
-\
-        @keyframes slideUp \{\
-            from \{ opacity: 0; transform: translateY(30px); \}\
-            to \{ opacity: 1; transform: translateY(0); \}\
-        \}\
-\
-        /* \uc0\u52968 \u53580 \u51060 \u45320  */\
-        .container \{\
-            max-width: 1200px;\
-            margin: 0 auto;\
-            padding: 0 2rem;\
-        \}\
-\
-        /* \uc0\u49465 \u49496  */\
-        section \{\
-            padding: 5rem 2rem;\
-        \}\
-\
-        section h2 \{\
-            font-size: 2.5rem;\
-            margin-bottom: 1rem;\
-            text-align: center;\
-            color: #667eea;\
-        \}\
-\
-        .section-subtitle \{\
-            text-align: center;\
-            color: #666;\
-            margin-bottom: 3rem;\
-            font-size: 1.1rem;\
-        \}\
-\
-        /* \uc0\u47928 \u51228 -\u49556 \u47336 \u49496  \u49465 \u49496  */\
-        .problem-solution \{\
-            background: #f8f9fa;\
-        \}\
-\
-        .problem-solution-container \{\
-            display: grid;\
-            grid-template-columns: 1fr 1fr;\
-            gap: 3rem;\
-            margin-top: 3rem;\
-        \}\
-\
-        .problem-box, .solution-box \{\
-            background: white;\
-            padding: 2rem;\
-            border-radius: 10px;\
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);\
-        \}\
-\
-        .problem-box \{\
-            border-left: 5px solid #ff6b6b;\
-        \}\
-\
-        .solution-box \{\
-            border-left: 5px solid #51cf66;\
-        \}\
-\
-        .problem-box h3, .solution-box h3 \{\
-            margin-bottom: 1rem;\
-            font-size: 1.5rem;\
-        \}\
-\
-        .problem-box h3 \{\
-            color: #ff6b6b;\
-        \}\
-\
-        .solution-box h3 \{\
-            color: #51cf66;\
-        \}\
-\
-        /* \uc0\u53440 \u44191  \u50724 \u46356 \u50616 \u49828  */\
-        .audience \{\
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);\
-            padding: 3rem;\
-            border-radius: 10px;\
-            margin-top: 2rem;\
-        \}\
-\
-        .audience h3 \{\
-            color: #667eea;\
-            margin-bottom: 1rem;\
-        \}\
-\
-        .audience p \{\
-            font-size: 1.05rem;\
-            line-height: 1.8;\
-            color: #555;\
-        \}\
-\
-        /* \uc0\u50640 \u51060 \u51204 \u53944  \u44536 \u47532 \u46300  */\
-        .agents-grid \{\
-            display: grid;\
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\
-            gap: 2rem;\
-            margin-top: 3rem;\
-        \}\
-\
-        .agent-card \{\
-            background: white;\
-            padding: 2rem;\
-            border-radius: 10px;\
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1);\
-            transition: all 0.3s ease;\
-            cursor: pointer;\
-            border-top: 4px solid #667eea;\
-        \}\
-\
-        .agent-card:hover \{\
-            transform: translateY(-10px);\
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);\
-        \}\
-\
-        .agent-card h4 \{\
-            font-size: 1.3rem;\
-            color: #667eea;\
-            margin-bottom: 0.5rem;\
-        \}\
-\
-        .agent-role \{\
-            color: #764ba2;\
-            font-weight: bold;\
-            font-size: 0.9rem;\
-            margin-bottom: 1rem;\
-        \}\
-\
-        .agent-card p \{\
-            color: #666;\
-            line-height: 1.6;\
-        \}\
-\
-        .agent-icon \{\
-            font-size: 2.5rem;\
-            margin-bottom: 1rem;\
-        \}\
-\
-        /* \uc0\u53945 \u51669  \u49465 \u49496  */\
-        .features \{\
-            background: white;\
-        \}\
-\
-        .features-grid \{\
-            display: grid;\
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\
-            gap: 2rem;\
-            margin-top: 3rem;\
-        \}\
-\
-        .feature-item \{\
-            text-align: center;\
-            padding: 2rem;\
-        \}\
-\
-        .feature-icon \{\
-            font-size: 3rem;\
-            margin-bottom: 1rem;\
-        \}\
-\
-        .feature-item h3 \{\
-            color: #667eea;\
-            margin-bottom: 1rem;\
-        \}\
-\
-        /* \uc0\u54392 \u53552  */\
-        footer \{\
-            background: #333;\
-            color: white;\
-            text-align: center;\
-            padding: 2rem;\
-            margin-top: 3rem;\
-        \}\
-\
-        /* \uc0\u48152 \u51025 \u54805  */\
-        @media (max-width: 768px) \{\
-            .hero h1 \{\
-                font-size: 2.5rem;\
-            \}\
-\
-            .hero p \{\
-                font-size: 1rem;\
-            \}\
-\
-            .problem-solution-container \{\
-                grid-template-columns: 1fr;\
-            \}\
-\
-            nav ul \{\
-                gap: 1rem;\
-                font-size: 0.9rem;\
-            \}\
-\
-            .header-content \{\
-                flex-direction: column;\
-                gap: 1rem;\
-            \}\
-\
-            .agents-grid \{\
-                grid-template-columns: 1fr;\
-            \}\
-\
-            section h2 \{\
-                font-size: 1.8rem;\
-            \}\
-        \}\
-    </style>\
-</head>\
-<body>\
-    <!-- \uc0\u54756 \u45908  -->\
-    <header>\
-        <div class="header-content">\
-            <div class="logo">\uc0\u55356 \u57260  FeelGood</div>\
-            <nav>\
-                <ul>\
-                    <li><a href="#problem">\uc0\u47928 \u51228 </a></li>\
-                    <li><a href="#solution">\uc0\u49556 \u47336 \u49496 </a></li>\
-                    <li><a href="#agents">AI \uc0\u50640 \u51060 \u51204 \u53944 </a></li>\
-                    <li><a href="#features">\uc0\u53945 \u51669 </a></li>\
-                </ul>\
-            </nav>\
-        </div>\
-    </header>\
-\
-    <!-- \uc0\u55176 \u50612 \u47196  \u49465 \u49496  -->\
-    <section class="hero">\
-        <h1>\uc0\u45817 \u49888 \u51032  \u44048 \u51221 \u51012  \u51069 \u44256  \u53080 \u53584 \u52768 \u47484  \u52628 \u52380 \u54644 \u50836 </h1>\
-        <p>\uc0\u51068 \u44592 \u47484  \u44277 \u50976 \u54616 \u47732 , AI\u44032  \u45817 \u49888 \u51032  \u44592 \u48516 \u50640  \u46385  \u47582 \u45716  \u50689 \u54868 \'b7\u46300 \u46972 \u47560 \'b7\u50937 \u53808 \u51012  \u52286 \u50500 \u51469 \u45768 \u45796 </p>\
-        <button class="cta-button">\uc0\u51648 \u44552  \u49884 \u51089 \u54616 \u44592 </button>\
-    </section>\
-\
-    <!-- \uc0\u47928 \u51228 -\u65533 \u65533 \u47336 \u49496  -->\
-    <section class="problem-solution" id="problem">\
-        <div class="container">\
-            <h2>\uc0\u50780  FeelGood\u51064 \u44032 ?</h2>\
-            \
-            <div class="problem-solution-container">\
-                <div class="problem-box">\
-                    <h3>\uc0\u10060  \u47928 \u51228  \u51221 \u51032 </h3>\
-                    <p>\uc0\u44060 \u51064  \u49440 \u54840 \u46020 \u47484  \u48152 \u50689 \u54616 \u45716  \u50689 \u54868  \u52628 \u52380  \u54532 \u47196 \u44536 \u47016 \u51008  \u51060 \u48120  \u44592 \u49457 \u54868 \u46104 \u50632 \u51648 \u47564 , \u45908  \u51201 \u44537 \u51201 \u51064  \u48169 \u49885 \u51060  \u54596 \u50836 \u54633 \u45768 \u45796 .</p>\
-                    <br>\
-                    <p><strong>\uc0\u49345 \u49324 \u54620 \u53580  \u44620 \u51060 \u44256  \u52828 \u44396 \u44032  \u47924 \u47168 \u54620  \u50612 \u45712  \u45216 ,</strong> \u46244 \u45734 \u44172  \u47589 \u51452  \u54620  \u52884  \u46384 \u44592 \u50644  \u45236 \u51068 \u51060  \u54217 \u51068 \u51064  \u50864 \u47532 \u46308 ...</p>\
-                    <p style="margin-top: 1rem; font-style: italic; color: #ff6b6b;">\uc0\u45817 \u49888 \u51032  \u44048 \u51221 \u51012  \u51228 \u45824 \u47196  \u48152 \u50689 \u54616 \u45716  \u52628 \u52380 \u51060  \u54596 \u50836 \u54644 \u50836 </p>\
-                </div>\
-\
-                <div class="solution-box">\
-                    <h3>\uc0\u9989  \u49556 \u47336 \u49496 </h3>\
-                    <p>\uc0\u51088 \u49888 \u51032  \u51068 \u44592 \u47484  \u44277 \u50976 \u54616 \u44144 \u45208  \u44048 \u51221 \u51012  \u44592 \u47197 \u54616 \u45716  \u44284 \u51221 \u51012  \u44144 \u52824 \u47732 , \u49884 \u51473 \u50640  \u50976 \u53685 \u46104 \u45716  \u47784 \u46304  \u53080 \u53584 \u52768 \u47484  \u52509 \u47581 \u46972 \u54644 \u49436  \u52628 \u52380 \u54644 \u51469 \u45768 \u45796 !</p>\
-                    <br>\
-                    <p><strong>\uc0\u50689 \u54868  \'95 \u46300 \u46972 \u47560  \'95 \u50937 \u53808  \'95 \u50696 \u45733  \'95 \u50937 \u49548 \u49444 </strong> \u46321 </p>\
-                    <p style="margin-top: 1rem; font-style: italic; color: #51cf66;">\uc0\u45817 \u49888 \u51032  \u44048 \u51221 \u50640  \u44032 \u51109  \u50612 \u50872 \u47532 \u45716  \u53080 \u53584 \u52768 \u47564  \u49440 \u48324 </p>\
-                </div>\
-            </div>\
-\
-            <div class="audience">\
-                <h3>\uc0\u55357 \u56421  \u53440 \u44191  \u50724 \u46356 \u50616 \u49828 </h3>\
-                <p>\uc0\u49345 \u49324 \u54620 \u53580  \u44620 \u51060 \u44256  \u52828 \u44396 \u44032  \u47924 \u47168 \u54620  \u50612 \u45712  \u45216 , \u46244 \u45734 \u44172  \u47589 \u51452  \u54620  \u52884  \u65533 \u65533 \u44592 \u50644  \u45236 \u51068 \u51060  \u54217 \u51068 \u51064  \u50864 \u47532 \u46308 . \u48736 \u47476 \u44256  \u51221 \u54869 \u54620  \u44592 \u48516  \u51204 \u54872 \u51060  \u54596 \u50836 \u54620  \u47784 \u46304  \u49324 \u46988 \u46308 .</p>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- AI \uc0\u50669 \u54624  \u51221 \u51032  -->\
-    <section id="agents">\
-        <div class="container">\
-            <h2>\uc0\u55358 \u56598  8\u44060 \u51032  AI \u50640 \u51060 \u51204 \u53944 </h2>\
-            <p class="section-subtitle">\uc0\u44033  \u50640 \u51060 \u51204 \u53944 \u44032  \u51204 \u47928  \u50669 \u54624 \u51012  \u49688 \u54665 \u54616 \u50668  \u52572 \u51201 \u51032  \u52628 \u52380 \u51012  \u51228 \u44277 \u54633 \u45768 \u45796 </p>\
-\
-            <div class="agents-grid">\
-                <div class="agent-card">\
-                    <div class="agent-icon">\uc0\u55357 \u56842 </div>\
-                    <h4>\uc0\u44048 \u51221  \u48516 \u49437 \u44032 </h4>\
-                    <div class="agent-role">/mood-parser</div>\
-                    <p>\uc0\u49324 \u50857 \u51088 \u44032  \u51077 \u47141 \u54620  \u51068 \u44592 \u47484  \u48516 \u49437 \u54616 \u50668  \u44048 \u51221  \u49345 \u53468 , \u50640 \u45320 \u51648  \u47112 \u48296 , \u50896 \u54616 \u45716  \u48516 \u50948 \u44592 \u47484  \u52628 \u52636 \u54633 \u45768 \u45796 . \u52628 \u49345 \u51201  \u54364 \u54788 \u51012  \u44396 \u52404 \u51201  \u53412 \u50892 \u46300 \u47196  \u48320 \u54872 \u54633 \u45768 \u45796 .</p>\
-                </div>\
-\
-                <div class="agent-card">\
-                    <div class="agent-icon">\uc0\u55357 \u56589 </div>\
-                    <h4>\uc0\u54540 \u47019 \u54268  \u51221 \u48372  \u49688 \u51665 \u44592 </h4>\
-                    <div class="agent-role">/platform-scout</div>\
-                    <p>\uc0\u45367 \u54540 \u47533 \u49828 , \u46356 \u51592 \u45768 +, \u50771 \u52320 , \u54000 \u48729  \u46321  \u51452 \u50836  OTT \u54540 \u47019 \u54268 \u51032  \u47700 \u53440 \u45936 \u51060 \u53552 \u47484  \u49892 \u49884 \u44036  \u49688 \u51665 \u54616 \u50668  \u51473 \u47549 \u51201  \u53080 \u53584 \u52768  \u54400 \u51012  \u44396 \u49457 \u54633 \u45768 \u45796 .</p>\
-                </div>\
-\
-                <div class="agent-card">\
-                    <div class="agent-icon">\uc0\u55356 \u57263 </div>\
-                    <h4>\uc0\u52628 \u52380  \u47588 \u52845 \u44592 </h4>\
-                    <div class="agent-role">/match-engine</div>\
-                    <p>\uc0\u44048 \u51221  \u48516 \u49437  \u44208 \u44284 \u50752  \u53080 \u53584 \u52768  \u54400 \u51012  \u44368 \u52264  \u48516 \u49437 \u54616 \u50668  \u52572 \u51201  \u52628 \u52380  \u47785 \u47197 \u51012  \u49373 \u49457 \u54633 \u45768 \u45796 . \u45800 \u49692  \u51109 \u47476  \u47588 \u52845 \u51012  \u45336 \u50612  \u44048 \u51221 \u51032  \u44452 \u51201 \u51012  \u47582 \u52645 \u45768 \u45796 .</p>\
-                </div>\
-\
-                <div class="agent-card">\
-                    <div class="agent-icon">\uc0\u55357 \u56510 </div>\
-                    <h4>\uc0\u47589 \u46973  \u44592 \u50613  \u44288 \u47532 \u51088 </h4>\
-                    <div class="agent-role">/context-memory</div>\
-                    <p>\uc0\u49324 \u50857 \u51088 \u51032  \u44284 \u44144  \u51077 \u47141  \u51060 \u47141 \u44284  \u54588 \u46300 \u48177 \u51012  \u51200 \u51109 \u54616 \u50668  \u44060 \u51064 \u54868  \u54617 \u49845  \u47336 \u54532 \u47484  \u44396 \u52629 \u54633 \u45768 \u45796 . \u49324 \u50857 \u54624 \u49688 \u47197  \u51221 \u48128 \u46020 \u44032  \u45458 \u50500 \u51665 \u45768 \u45796 .</p>\
-                </div>\
-\
-                <div class="agent-card">\
-                    <div class="agent-icon">\uc0\u55357 \u56492 </div>\
-                    <h4>\uc0\u52628 \u52380  \u54644 \u49444 \u49324 </h4>\
-                    <div class="agent-role">/explain-layer</div>\
-                    <p>\uc0\u50780  \u51060  \u53080 \u53584 \u52768 \u47484  \u52628 \u52380 \u54664 \u45716 \u44032 \u47484  \u49324 \u50857 \u51088  \u50616 \u50612 \u47196  \u49444 \u47749 \u54633 \u45768 \u45796 . \u50508 \u44256 \u47532 \u51608 \u51032  \u53804 \u47749 \u49457 \u51012  \u45458 \u51060 \u44256  \u49888 \u47280 \u47484  \u54805 \u49457 \u54633 \u45768 \u45796 .</p>\
-                </div>\
-\
-                <div class="agent-card">\
-                    <div class="agent-icon">\uc0\u55356 \u57256 </div>\
-                    <h4>\uc0\u51064 \u53552 \u54168 \u51060 \u49828  \u49444 \u44228 \u51088 </h4>\
-                    <div class="agent-role">/ux-interface</div>\
-                    <p>\uc0\u44048 \u51221  \u51077 \u47141 \u52285 , \u52628 \u52380  \u52852 \u46300  \u46321  \u49324 \u50857 \u51088  \u51217 *\
-\uc0\u57344 }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* 헤더 */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 컨테이너 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 섹션 */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* 문제-솔루션 섹션 */
+        .problem-solution {
+            background: #f8f9fa;
+        }
+
+        .problem-solution-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .problem-box, .solution-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .problem-box {
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .solution-box {
+            border-left: 5px solid #51cf66;
+        }
+
+        .problem-box h3, .solution-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .problem-box h3 {
+            color: #ff6b6b;
+        }
+
+        .solution-box h3 {
+            color: #51cf66;
+        }
+
+        /* 타겟 오디언스 */
+        .audience {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .audience h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .audience p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* 에이전트 그리드 */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .agent-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-top: 4px solid #667eea;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .agent-card h4 {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .agent-role {
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .agent-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .agent-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 특징 섹션 */
+        .features {
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* 푸터 */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .problem-solution-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <div class="header-content">
+            <div class="logo">🎬 FeelGood</div>
+            <nav>
+                <ul>
+                    <li><a href="#problem">문제</a></li>
+                    <li><a href="#solution">솔루션</a></li>
+                    <li><a href="#agents">AI 에이전트</a></li>
+                    <li><a href="#features">특징</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <h1>당신의 감정을 읽고 콘텐츠를 추천해요</h1>
+        <p>일기를 공유하면, AI가 당신의 기분에 딱 맞는 영화·드라마·웹툰을 찾아줍니다</p>
+        <button class="cta-button">지금 시작하기</button>
+    </section>
+
+    <!-- 문제-솔루션 -->
+    <section class="problem-solution" id="problem">
+        <div class="container">
+            <h2>왜 FeelGood인가?</h2>
+            
+            <div class="problem-solution-container">
+                <div class="problem-box">
+                    <h3>❌ 문제 정의</h3>
+                    <p>개인 선호도를 반영하는 영화 추천 프로그램은 이미 기성화되었지만, 더 적극적인 방식이 필요합니다.</p>
+                    <br>
+                    <p><strong>상사한테 까이고 친구가 무례한 어느 날,</strong> 뒤늦게 맥주 한 캔 따기엔 내일이 평일인 우리들...</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: #ff6b6b;">당신의 감정을 제대로 반영하는 추천이 필요해요</p>
+                </div>
+
+                <div class="solution-box">
+                    <h3>✅ 솔루션</h3>
+                    <p>자신의 일기를 공유하거나 감정을 기록하는 과정을 거치면, 시중에 유통되는 모든 콘텐츠를 총망라해서 추천해줍니다!</p>
+                    <br>
+                    <p><strong>영화 • 드라마 • 웹툰 • 예능 • 웹소설</strong> 등</p>
+                    <p style="margin-top: 1rem; font-style: italic; color: #51cf66;">당신의 감정에 가장 어울리는 콘텐츠만 선별</p>
+                </div>
+            </div>
+
+            <div class="audience">
+                <h3>👥 타겟 오디언스</h3>
+                <p>상사한테 까이고 친구가 무례한 어느 날, 뒤늦게 맥주 한 캔 따기엔 내일이 평일인 우리들. 빠르고 정확한 기분 전환이 필요한 모든 사람들.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 역할 정의 -->
+    <section id="agents">
+        <div class="container">
+            <h2>🤖 8개의 AI 에이전트</h2>
+            <p class="section-subtitle">각 에이전트가 전문 역할을 수행하여 최적의 추천을 제공합니다</p>
+
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-icon">😊</div>
+                    <h4>감정 분석가</h4>
+                    <div class="agent-role">/mood-parser</div>
+                    <p>사용자가 입력한 일기를 분석하여 감정 상태, 에너지 레벨, 원하는 분위기를 추출합니다. 추상적 표현을 구체적 키워드로 변환합니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">🔍</div>
+                    <h4>플랫폼 정보 수집기</h4>
+                    <div class="agent-role">/platform-scout</div>
+                    <p>넷플릭스, 디즈니+, 왓챠, 티빙 등 주요 OTT 플랫폼의 메타데이터를 실시간 수집하여 중립적 콘텐츠 풀을 구성합니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">🎯</div>
+                    <h4>추천 매칭기</h4>
+                    <div class="agent-role">/match-engine</div>
+                    <p>감정 분석 결과와 콘텐츠 풀을 교차 분석하여 최적 추천 목록을 생성합니다. 단순 장르 매칭을 넘어 감정의 궤적을 맞춥니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">💾</div>
+                    <h4>맥락 기억 관리자</h4>
+                    <div class="agent-role">/context-memory</div>
+                    <p>사용자의 과거 입력 이력과 피드백을 저장하여 개인화 학습 루프를 구축합니다. 사용할수록 정밀도가 높아집니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">💬</div>
+                    <h4>추천 해설사</h4>
+                    <div class="agent-role">/explain-layer</div>
+                    <p>왜 이 콘텐츠를 추천했는가를 사용자 언어로 설명합니다. 알고리즘의 투명성을 높이고 신뢰를 형성합니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">🎨</div>
+                    <h4>인터페이스 설계자</h4>
+                    <div class="agent-role">/ux-interface</div>
+                    <p>감정 입력창, 추천 카드 등 사용자 접점을 설계합니다. 모든 디바이스에서 일관된 경험을 제공합니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">✅</div>
+                    <h4>품질 검수관</h4>
+                    <div class="agent-role">/quality-check</div>
+                    <p>추천 결과의 정확도, 다양성, 신선도를 지속 점검합니다. 필터버블 현상과 데이터 편향을 자동 감지합니다.</p>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-icon">📊</div>
+                    <h4>운영 성찰 분석가</h4>
+                    <div class="agent-role">/insight-retro</div>
+                    <p>주간 단위 사용 데이터를 분석하여 개선 포인트를 도출합니다. 각 에이전트가 더 정교하게 진화하도록 피드백을 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 특징 -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>✨ 주요 특징</h2>
+            <p class="section-subtitle">FeelGood만의 차별화된 경험</p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>정확한 분석</h3>
+                    <p>AI가 당신의 감정을 깊이 있게 분석하여 정확한 추천을 제공합니다.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🌐</div>
+                    <h3>전체 플랫폼 커버</h3>
+                    <p>모든 OTT 플랫폼의 콘텐츠를 아우르는 포괄적 추천.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📚</div>
+                    <h3>다양한 콘텐츠</h3>
+                    <p>영화, 드라마, 웹툰, 예능, 웹소설 등 모든 종류를 추천합니다.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3>학습 가능</h3>
+                    <p>사용할수록 당신을 더 잘 이해하고 더 나은 추천을 합니다.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <h3>투명한 설명</h3>
+                    <p>추천 이유를 명확하게 설명하여 신뢰를 형성합니다.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>모든 기기 지원</h3>
+                    <p>스마트폰, 태블릿, 데스크톱 어디서나 자유롭게 이용합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2026 FeelGood. 당신의 감정을 읽고 콘텐츠를 추천합니다.</p>
+        <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9rem;">Made with ❤️ for better entertainment experience</p>
+    </footer>
+
+    <script>
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // CTA 버튼 클릭
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            alert('준비 중입니다! 곧 만날 수 있습니다. 😊');
+        });
+    </script>
+</body>
+</html>
